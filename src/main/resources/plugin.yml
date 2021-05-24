@@ -1,0 +1,7 @@
+name: KDBPVP
+version: ${project.version}
+main: me.lifelessnerd.kdbpvp.Main
+api-version: 1.16
+authors: [ LifelessNerd, PrinceMordred ]
+description: KDB PVP plugin for the KDB servere
+website: bit.ly/KDBSite
