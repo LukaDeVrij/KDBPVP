@@ -1,6 +1,7 @@
 package me.lifelessnerd.kdbpvp;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,14 +29,23 @@ public class OnPlayerDeath implements Listener {
 		//Arrow
 		ItemStack arrowItem = new ItemStack(Material.ARROW, 2);
 
+		//Bow
+		ItemStack bowItem = new ItemStack(Material.BOW);
+
 
 	  if (player.getWorld().getName().equalsIgnoreCase("pvp")) {
 	  	if (player.getKiller() instanceof Player) {
 			Player killer = player.getKiller();
 			Inventory killerInventory = killer.getInventory();
 			killerInventory.addItem(potionItem);
-			killerInventory.addItem(arrowItem);
-
+			if (killerInventory.contains(Material.BOW)) {
+				killer.sendMessage("1");
+				killerInventory.addItem(arrowItem);
+			}
+			if (killerInventory.contains(bowItem)){
+				killer.sendMessage("2");
+				killerInventory.addItem(arrowItem);
+			}
 		}
 	  }
 	}
