@@ -9,7 +9,8 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         System.out.println("PLUGIN STARTING");
         getServer().getPluginManager().registerEvents(new OnPlayerDeath(), this);
-
+        new OnRespawnEvent(this);
+        getServer().getPluginManager().registerEvents(new OnMoveEvent(), this);
     }
 
     @Override
