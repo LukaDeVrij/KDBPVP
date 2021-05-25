@@ -20,6 +20,8 @@ public class OnRespawnEvent implements Listener {
     public void onRespawn(PlayerRespawnEvent event) {
         Player player = event.getPlayer();
         if (player.getWorld().getName().equalsIgnoreCase("pvp")) {
+            player.getInventory().clear();
+            player.getActivePotionEffects().clear();
             Bukkit.getScheduler().runTaskLater(plugin, () -> player.chat("/kit"), 1L);
         }
     }

@@ -34,9 +34,7 @@ public class OnPlayerDeath implements Listener {
 			Player killer = player.getKiller();
 			Inventory killerInventory = killer.getInventory();
 			killerInventory.addItem(potionItem);
-			if (killer.getInventory().contains(new ItemStack(Material.BOW))) {
-				killerInventory.addItem(arrowItem);
-			}
+			killerInventory.addItem(arrowItem);
 
 		}
 	  }
