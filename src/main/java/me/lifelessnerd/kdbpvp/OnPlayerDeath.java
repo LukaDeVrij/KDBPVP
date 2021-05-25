@@ -29,8 +29,6 @@ public class OnPlayerDeath implements Listener {
 		//Arrow
 		ItemStack arrowItem = new ItemStack(Material.ARROW, 2);
 
-		//Bow
-		ItemStack bowItem = new ItemStack(Material.BOW);
 
 
 	  if (player.getWorld().getName().equalsIgnoreCase("pvp")) {
