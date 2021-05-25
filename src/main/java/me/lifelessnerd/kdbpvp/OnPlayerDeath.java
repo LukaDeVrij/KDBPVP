@@ -1,6 +1,5 @@
 package me.lifelessnerd.kdbpvp;
 
-import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,18 +18,25 @@ public class OnPlayerDeath implements Listener {
 	  	Player player = event.getEntity();
 
 		// Potion
-		ItemStack itemToAdd = new ItemStack(Material.SPLASH_POTION, 1);
-		PotionMeta potionMeta = (PotionMeta) itemToAdd.getItemMeta();
+		ItemStack potionItem = new ItemStack(Material.SPLASH_POTION, 1);
+		PotionMeta potionMeta = (PotionMeta) potionItem.getItemMeta();
 		PotionEffect potEffect = new PotionEffect(PotionEffectType.HEAL, 2, 1, true, true);
         assert potionMeta != null; //idk wat dit is maar IntelliJ wilde het
         potionMeta.addCustomEffect(potEffect, true);
-		itemToAdd.setItemMeta(potionMeta);
+		potionItem.setItemMeta(potionMeta);
+
+		//Arrow
+		ItemStack arrowItem = new ItemStack(Material.ARROW, 2);
+
 
 	  if (player.getWorld().getName().equalsIgnoreCase("pvp")) {
 	  	if (player.getKiller() instanceof Player) {
 			Player killer = player.getKiller();
 			Inventory killerInventory = killer.getInventory();
-			killerInventory.addItem(itemToAdd);
+			killerInventory.addItem(potionItem);
+			if (killer.getInventory().contains(new ItemStack(Material.BOW))) {
+				killerInventory.addItem(arrowItem);
+			}
 
 		}
 	  }
