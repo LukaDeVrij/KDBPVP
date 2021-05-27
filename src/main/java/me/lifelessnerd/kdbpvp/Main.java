@@ -11,6 +11,7 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnPlayerDeath(), this);
         new OnRespawnEvent(this);
         getServer().getPluginManager().registerEvents(new OnMoveEvent(), this);
+        getServer().getPluginManager().registerEvents(new KitPropertiesOnDeath(), this);
     }
 
     @Override
