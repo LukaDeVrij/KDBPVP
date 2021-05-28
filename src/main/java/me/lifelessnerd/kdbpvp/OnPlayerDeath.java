@@ -26,6 +26,7 @@ public class OnPlayerDeath implements Listener {
 
 		// Killstreaks probeersel
 		if (killer instanceof Player) {
+			killer.sendMessage(String.valueOf(killStreaks)); //debug
 			if (killStreaks.containsKey(killer.getName())) {
 				killStreaks.replace(killer.getName(), killStreaks.get(killer.getName() + 1));
 				for(Player p : Bukkit.getOnlinePlayers()){
